@@ -1,4 +1,4 @@
-# Documention for bZx Protocol and Fulcrum
+# Getting Started
 
 ## bZx Protocol
 
@@ -9,3 +9,4 @@
 
 * [Website](https://fulcrum.trade)
 * [Integration Guide](fulcrum-integration-guide.md)
+
