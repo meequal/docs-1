@@ -1,4 +1,4 @@
-# Setting up your project
+# Installation & Setup
 
 Version 1.x of bzx.js is compatible with Node.js 8.x on Windows and Linux platforms.
 
@@ -12,7 +12,7 @@ Using NPM: `npm install @bzxnetwork/bzx.js --save`
 
 Using Yarn: `yarn add @bzxnetwork/bzx.js`
 
-## Initialize
+## Setup
 
 ```javascript
 const Web3 = require("web3");

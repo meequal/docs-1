@@ -16,3 +16,8 @@
 * [JavaScript API](bzx.js/js-api.md)
 * [Building from sources](bzx.js/building.md)
 * [Starter Project](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/starter_project)
+
+## Base Protocol
+
+* [Docs](https://bzx.network/docs/contracts/)
+* [GitHub](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts)
