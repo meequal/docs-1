@@ -33,7 +33,10 @@ function getTokens(
 
 There are other view functions that may also be of use. The Etherscan-verified contracts for each network can be found at the follow addresses.
 
-Mainnet: registry.tokenloan.eth \(coming soon\) Ropsten: registry.tokenloan.eth \(coming soon\) Rinkeby: \(coming soon\) Kovan: 0x730df5c1e0a4b6ba7a982a585c1ec55187fbb3ca
+Mainnet: registry.tokenloan.eth \(coming soon\)
+Ropsten: registry.tokenloan.eth \(coming soon\)
+Rinkeby: \(coming soon\)
+Kovan: 0x730df5c1e0a4b6ba7a982a585c1ec55187fbb3ca
 
 ## Contract Artifacts
 
