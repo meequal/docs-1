@@ -44,4 +44,3 @@ Kovan: 0x730df5c1e0a4b6ba7a982a585c1ec55187fbb3ca
 ## Contract Artifacts
 
 The latest ABIs \(Application Binary Interfaces\) for Fulcrum tokens and the TokenizedRegistry can be found here for each supported network: [https://fulcrum.trade/artifacts](https://fulcrum.trade/artifacts)
-

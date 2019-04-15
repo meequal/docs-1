@@ -290,4 +290,3 @@ function assetBalanceOf(
 ```
 
 Returns the user’s balance of the underlying asset. This is the same as multiplying the user’s token balance by the token price.
-
