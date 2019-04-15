@@ -8,3 +8,4 @@
 * [Token Discovery](fulcrum-integration/token-discovery.md)
 * [Lending](fulcrum-integration/lending.md)
 * [Trading & Borrowing](fulcrum-integration/trading-borrowing.md)
+

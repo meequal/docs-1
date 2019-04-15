@@ -1,4 +1,4 @@
-# Fulcrum Token Discovery
+# Token Discovery
 
 ## ENS Usage
 
@@ -38,3 +38,4 @@ Mainnet: registry.tokenloan.eth \(coming soon\) Ropsten: registry.tokenloan.eth 
 ## Contract Artifacts
 
 The latest ABIs \(Application Binary Interfaces\) for Fulcrum tokens and the TokenizedRegistry can be found here for each supported network: [https://fulcrum.trade/artifacts](https://fulcrum.trade/artifacts)
+
