@@ -12,6 +12,7 @@
 ## bZx.js
 
 * [bZx.js Introduction](bzx.js/intro.md)
-* [Setting up your project](bzx.js/setting-up-your-project.md)
+* [Installation & Setup](bzx.js/install-setup.md)
 * [JavaScript API](bzx.js/js-api.md)
 * [Building from sources](bzx.js/building.md)
+* [Starter Project](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/starter_project)
