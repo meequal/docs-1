@@ -4,7 +4,7 @@
 
 **Order Taker** is the person, who accepts the deal on the decentralized exchange or the decentralized lending platform.
 
-**Lender** is the person who wants to provide possesed funds for usage by another party while getting it’s interest from deals with these money.
+**Lender** is the person, who wants to provide funds for usage by another party while earning interest.
 
 **Borrower** is the person who wants to get another's party’s funds for usage in that person’s deals.
 
