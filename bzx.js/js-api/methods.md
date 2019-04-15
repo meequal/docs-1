@@ -1,87 +1,8 @@
-# JavaScript API
+# Methods
 
-This documentation section contains the description of JavaScript API provided by the bzx.js library.
+## Allowance
 
-bzx.js is the library for interaction with the bZx protocol.
-
-This library provides a way for interaction with the bZx smart contracts, and helper functions.
-
-## Glossary
-
-**Decentralized exchange \(DEX\)** is an exchange market that does not rely on a third-party service to hold the customer's funds. Instead, trades occur directly between users \(peer to peer\) through an automated process \([https://www.cryptocompare.com/exchanges/guides/what-is-a-decentralized-exchange/](https://www.cryptocompare.com/exchanges/guides/what-is-a-decentralized-exchange/)\).
-
-**Trade order** is an order to exchange to move funds between users' accounts.
-
-**Loan order** is an order to the lending platform to take the lender's funds and provide the borrower with that funds directly or indirectly.
-
-**Orderbook** is the place, where users can publish their orders.
-
-**Relayer** is a person or entity, which hosts off-chain orderbook.
-
-**Long position** is an exchange deal, which has the intent to get some funds in exchange for another, and then to own new funds.
-
-**Short position** is an exchange deal, which has the intent to get some funds in exchange for another, but to own them just for a short period, until price changes and funds would be sold with the profit.
-
-**Collateral** is an asset that a borrower offers as a way for a lender to secure the loan.
-
-**Margin trading** is usage of the borrowed funds when trading in a short position with the goal to increase profits while also increasing risks.
-
-**Margin call** is a situation, when trader, who uses margin trading loses his own funds \(collateral\) in a short position, and market forces close of trader’s short position.
-
-**Swap provider** is an external to the bZx platform DEX that can be used for trade orders execution.
-
-**Liquidity source** is a funds reserve, that gives ability to execute orders \(event unexpected\).
-
-**Liquidity provider** is a connection to source of liquidity, that provides ability to execute deals on side of liquidity source.
-
-**Price feed provider** on-chain source of exchange rates.
-
-**WETH** wrapped ETH. This is ERC20 token, which represents ETH. It's needed for trading ETH in the same way as any other ERC20 token. More at [https://weth.io/](https://weth.io/).
-
-## Roles
-
-**Order Maker** is the person, who proposes the deal on the decentralized exchange or the decentralized lending platform.
-
-**Order Taker** is the person, who accepts the deal on the decentralized exchange or the decentralized lending platform.
-
-**Lender** is the person who wants to provide possesed funds for usage by another party while getting it’s interest from deals with these money.
-
-**Borrower** is the person who wants to get another's party’s funds for usage in that person’s deals.
-
-**Trader** is the person who trades funds on exchange.
-
-**Bounty hunter** is the person or application who monitors current orders and initiates margin calls.
-
-## Instance
-
-#### Constructor
-
-Creates an instance of BZxJS.
-
-```typescript
-  constructor(
-    web3: Web3,
-    params: { networkId: number; addresses?: string[]; }
-  );
-```
-
-**Arguments**
-
-`web3` web3 instance
-
-`params.networkid` id of the network to connect \(for example `3` for `ropsten`\)
-
-`params.addresses` a map containing the bZx contracts addresses in the specified network
-
-**Returns**
-
-`BZxJS` instance
-
-## Methods
-
-### Allowance
-
-#### getAllowance
+### getAllowance
 
 Get the amount of tokens at `params.tokenAddress` granted to withdraw by `params.spenderAddress` from `params.ownerAddress`.
 
@@ -105,7 +26,7 @@ Get the amount of tokens at `params.tokenAddress` granted to withdraw by `params
 
 `BigNumber` value indicating tokens amount allowed to withdraw
 
-#### setAllowance
+### setAllowance
 
 Allow `params.spenderAddress` to withdraw tokens at `params.tokenAddress` from `params.ownerAddress`, multiple times, up to the `params.amountInBaseUnits` amount.
 
@@ -138,7 +59,7 @@ Allow `params.spenderAddress` to withdraw tokens at `params.tokenAddress` from `
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### setAllowanceUnlimited
+### setAllowanceUnlimited
 
 Allow `params.spenderAddress` to withdraw tokens from `params.ownerAddress`, multiple times, without the limit.
 
@@ -168,7 +89,7 @@ Allow `params.spenderAddress` to withdraw tokens from `params.ownerAddress`, mul
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### resetAllowance
+### resetAllowance
 
 Disallow `params.spenderAddress` to withdraw tokens from `params.ownerAddress`.
 
@@ -198,9 +119,9 @@ Disallow `params.spenderAddress` to withdraw tokens from `params.ownerAddress`.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-### Hash
+## Hash
 
-#### getLoanOrderHashHex
+### getLoanOrderHashHex
 
 Calculate Keccak-256 hash of loan order with specified parameters.
 
@@ -216,7 +137,7 @@ Calculate Keccak-256 hash of loan order with specified parameters.
 
 Hash value `string`
 
-#### getLoanOrderHashAsync
+### getLoanOrderHashAsync
 
 Calculate Keccak-256 hash of order with specified parameters.
 
@@ -232,9 +153,9 @@ Calculate Keccak-256 hash of order with specified parameters.
 
 `Promise` for hash value `string`
 
-### Signature
+## Signature
 
-#### signOrderHashAsync
+### signOrderHashAsync
 
 Sign loan order and returns the signature `string`.
 
@@ -258,7 +179,7 @@ Sign loan order and returns the signature `string`.
 
 `Promise` for `string` containing order hash signature
 
-#### isValidSignature
+### isValidSignature
 
 Check order hash signature validity.
 
@@ -282,7 +203,7 @@ Check order hash signature validity.
 
 `boolean` value indicating if the signature is valid
 
-#### isValidSignatureAsync
+### isValidSignatureAsync
 
 Check order hash signature validity.
 
@@ -306,9 +227,9 @@ Check order hash signature validity.
 
 `Promise` for `boolean` value indicating if the signature is valid
 
-### Exchange
+## Exchange
 
-#### getTokenList
+### getTokenList
 
 Provide metadata for all registered tokens.
 
@@ -324,7 +245,7 @@ None
 
 `Promise` for an array of `ITokenDescription`
 
-#### getOracleList
+### getOracleList
 
 Provide metadata for all registered oracles.
 
@@ -340,7 +261,7 @@ None
 
 `Promise` for an array of `IOracleDescription`
 
-#### isTradeSupported
+### isTradeSupported
 
 Check if specified `params.oracleAddress` supports exchange operation of provided tokens.
 
@@ -367,7 +288,7 @@ Check if specified `params.oracleAddress` supports exchange operation of provide
 
 `Promise` for `boolean` value indicating if oracle is able to make exchange operation between tokens
 
-#### getConversionData
+### getConversionData
 
 Get terms of exchange operation between tokens in the specific amount using selected oracle.
 
@@ -394,9 +315,9 @@ Get terms of exchange operation between tokens in the specific amount using sele
 
 `Promise` for `IConversionData` value containing exchange rate and available amount of tokens for exchange
 
-### Loan orders
+## Loan orders
 
-#### getSingleOrder
+### getSingleOrder
 
 Get single loan order by it's `params.loanOrderHash`.
 
@@ -414,7 +335,7 @@ Get single loan order by it's `params.loanOrderHash`.
 
 `Promise` for `ILoanOrderFillable` which represents the current fill state of specified loan order
 
-#### getOrdersFillable
+### getOrdersFillable
 
 Get the list of loan orders that are available for taking.
 
@@ -438,7 +359,7 @@ Get the list of loan orders that are available for taking.
 
 `Promise` for an array of `ILoanOrderFillable` every item of which represents the current fill state of specified loan order
 
-#### getOrdersForUser
+### getOrdersForUser
 
 Return the list of loan orders filtered by specified `params.loanPartyAddress`.
 
@@ -465,7 +386,7 @@ Return the list of loan orders filtered by specified `params.loanPartyAddress`.
 
 `Promise` for an array of `ILoanOrderFillable` every item of which represents the current fill state of specified loan order
 
-#### takeLoanOrderAsTrader
+### takeLoanOrderAsTrader
 
 Take loan order created and signed by the lender and push it on-chain.
 
@@ -505,7 +426,7 @@ if `false`, that normal margin loan \(initial margin collateral only\) NOTE: if 
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### takeLoanOrderAsLender
+### takeLoanOrderAsLender
 
 Take loan order created and signed by the trader and push it on-chain.
 
@@ -532,7 +453,7 @@ Take loan order created and signed by the trader and push it on-chain.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### pushLoanOrderOnChain
+### pushLoanOrderOnChain
 
 Push signed loan order on-chain.
 
@@ -559,7 +480,7 @@ Push signed loan order on-chain.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### takeLoanOrderOnChainAsTrader
+### takeLoanOrderOnChainAsTrader
 
 Take loan order created and signed by the lender and already located on-chain \(partially filled\).
 
@@ -596,7 +517,7 @@ if `false`, that normal margin loan \(initial margin collateral only\) NOTE: if 
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### takeLoanOrderOnChainAsLender
+### takeLoanOrderOnChainAsLender
 
 Take loan order created and signed by the trader and already located on-chain \(partially filled\).
 
@@ -620,7 +541,7 @@ Take loan order created and signed by the trader and already located on-chain \(
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### getSingleLoan
+### getSingleLoan
 
 Get the loan order current execution state.
 
@@ -641,7 +562,7 @@ Get the loan order current execution state.
 
 `Promise` for `ILoanPositionState` which represents the current state of specified loan order
 
-#### getLoansForLender
+### getLoansForLender
 
 Get the list of loan orders with current execution state filtered by lender `params.address`.
 
@@ -665,7 +586,7 @@ Get the list of loan orders with current execution state filtered by lender `par
 
 `Promise` for an array of `ILoanPositionState` every item of which represents the current state of related loan order
 
-#### getLoansForTrader
+### getLoansForTrader
 
 Get the list of loan orders with current execution state filtered by trader `params.address`.
 
@@ -689,7 +610,7 @@ Get the list of loan orders with current execution state filtered by trader `par
 
 `Promise` for an array of `ILoanPositionState` every item of which represents the current state of related loan order
 
-#### getActiveLoans
+### getActiveLoans
 
 Get the paginated list of active loan orders.
 
@@ -710,7 +631,7 @@ Get the paginated list of active loan orders.
 
 `Promise` for an array of `ILoanOrderActive` every item of which contains a unique hash representing the loan order, trader and expiration timestamp of the loan order
 
-#### getMarginLevels
+### getMarginLevels
 
 Get current margin data for the loan order.
 
@@ -731,7 +652,7 @@ Get current margin data for the loan order.
 
 `Promise` for `IMarginLevel` which represents current state of margin of the loan order
 
-#### getPositionOffset
+### getPositionOffset
 
 Get the current profit/loss data of the position.
 
@@ -752,7 +673,7 @@ Get the current profit/loss data of the position.
 
 `Promise` for `IProfitStatus` which represents current state of profits/losses of the loan order
 
-#### withdrawPosition
+### withdrawPosition
 
 Allows the trader to withdraw any amount in excess of their loan principal. The trader will only be able to withdraw an amount the keeps the loan at or above initial margin.
 
@@ -779,7 +700,7 @@ Allows the trader to withdraw any amount in excess of their loan principal. The 
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### depositPosition
+### depositPosition
 
 Allows the trader to return the position/loan token to increase their escrowed balance. This should be used by the trader if they've withdraw an overcollateralized loan. If depositTokenAddress does not match the current position, it will traded with the oracle.
 
@@ -809,7 +730,7 @@ Allows the trader to return the position/loan token to increase their escrowed b
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### getInterest
+### getInterest
 
 Get current interest data for the loan order.
 
@@ -830,7 +751,7 @@ Get current interest data for the loan order.
 
 `Promise` for `IInterestStatus` which represents current state of interests of the loan order
 
-#### payInterest
+### payInterest
 
 Pay the lender of a loan the total amount of interest accrued for a loan.
 
@@ -857,7 +778,7 @@ Pay the lender of a loan the total amount of interest accrued for a loan.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### cancelLoanOrder
+### cancelLoanOrder
 
 Cancels remaining \(untaken\) loan.
 
@@ -887,7 +808,7 @@ Cancels remaining \(untaken\) loan.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### cancelLoanOrderWithHash
+### cancelLoanOrderWithHash
 
 Cancels remaining \(untaken\) loan.
 
@@ -914,7 +835,7 @@ Cancels remaining \(untaken\) loan.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### orderFilledAmount
+### orderFilledAmount
 
 Returns amount of tokens filled in the loan order
 
@@ -932,7 +853,7 @@ Returns amount of tokens filled in the loan order
 
 `Promise` for `string` containing the cancelled amount
 
-#### orderCancelledAmount
+### orderCancelledAmount
 
 Returns amount of tokens canceled in the loan order
 
@@ -950,7 +871,7 @@ Returns amount of tokens canceled in the loan order
 
 `Promise` for `string` containing the cancelled amount
 
-#### closeLoanPartially
+### closeLoanPartially
 
 Called by the trader to close part of their loan early.
 
@@ -977,7 +898,7 @@ Called by the trader to close part of their loan early.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### closeLoan
+### closeLoan
 
 Called by the trader to close their loan early.
 
@@ -1001,7 +922,7 @@ Called by the trader to close their loan early.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### liquidateLoan
+### liquidateLoan
 
 Checks that a position meets the conditions for liquidation, then closes the position and loan.
 
@@ -1030,9 +951,9 @@ If called by `params.trader` himself, calls `closeLoan`.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-### Collateral
+## Collateral
 
-#### getInitialCollateralRequired
+### getInitialCollateralRequired
 
 Calculates the initial collateral required to open the loan.
 
@@ -1062,7 +983,7 @@ Calculates the initial collateral required to open the loan.
 
 `Promise` for `string` containing the minimum collateral requirement to open the loan
 
-#### changeCollateral
+### changeCollateral
 
 Change the collateral token being used for a loan.
 
@@ -1091,7 +1012,7 @@ This function will transfer in the initial margin requirement of the new token a
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### depositCollateral
+### depositCollateral
 
 Increase the collateral for a loan. If depositTokenAddress does not match the current collateral token, it will traded with the oracle.
 
@@ -1121,7 +1042,7 @@ Increase the collateral for a loan. If depositTokenAddress does not match the cu
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### withdrawCollateral
+### withdrawCollateral
 
 Allows the trader to withdraw excess collateral for a loan.
 
@@ -1153,9 +1074,9 @@ Excess collateral is any amount above the initial margin.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-### Trade
+## Trade
 
-#### tradePositionWith0x
+### tradePositionWith0x
 
 Execute a 0x trade using loaned funds.
 
@@ -1182,7 +1103,7 @@ Execute a 0x trade using loaned funds.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### tradePositionWith0xV2
+### tradePositionWith0xV2
 
 Execute a 0x trade using loaned funds on 0x V2 protocol network.
 
@@ -1209,7 +1130,7 @@ Execute a 0x trade using loaned funds on 0x V2 protocol network.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### tradePositionWithOracle
+### tradePositionWithOracle
 
 Execute a market order trade using the oracle contract specified in the loan referenced by `params.orderHash`.
 
@@ -1236,9 +1157,9 @@ Execute a market order trade using the oracle contract specified in the loan ref
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-### ETH/WETH
+## ETH/WETH
 
-#### wrapEth
+### wrapEth
 
 Converts ETH to WETH Tokens.
 
@@ -1262,7 +1183,7 @@ Converts ETH to WETH Tokens.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### unwrapEth
+### unwrapEth
 
 Converts ETH to WETH Tokens.
 
@@ -1286,9 +1207,9 @@ Converts ETH to WETH Tokens.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-### Utils
+## Utils
 
-#### generatePseudoRandomSalt
+### generatePseudoRandomSalt
 
 Static method that generates a pseudo-random UINT256 number.
 
@@ -1304,7 +1225,7 @@ None
 
 `BigNumber` instance
 
-#### getBalance
+### getBalance
 
 Get balance of specific ERC20 token at `params.ownerAddress`
 
@@ -1320,7 +1241,7 @@ Get balance of specific ERC20 token at `params.ownerAddress`
 
 `Promise` for `BigNumber` instance
 
-#### noop
+### noop
 
 Static method that does nothing. Just an empty function.
 
@@ -1336,7 +1257,7 @@ None
 
 Nothing
 
-#### requestFaucetToken
+### requestFaucetToken
 
 Request test token transfer `params.receiverAddress`.
 
@@ -1363,7 +1284,7 @@ Request test token transfer `params.receiverAddress`.
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
 
-#### toChecksumAddress
+### toChecksumAddress
 
 Will convert an upper or lowercase Ethereum address to a checksum address.
 
@@ -1379,7 +1300,7 @@ Will convert an upper or lowercase Ethereum address to a checksum address.
 
 The checksum address `string`
 
-#### transferToken
+### transferToken
 
 Transfers specified amount of tokens to `to` address.
 
@@ -1408,259 +1329,3 @@ Transfers specified amount of tokens to `to` address.
 **Returns**
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
-
-## Structures
-
-#### ITokenDescription
-
-```typescript
-export declare interface ITokenDescription {
-  address: string;
-  name: string;
-  symbol: string;
-  decimals: number;
-  url: string;
-}
-```
-
-#### IOracleDescription
-
-```typescript
-export declare interface IOracleDescription {
-  address: string;
-  name: string;
-}
-```
-
-#### ILoanOrderActive
-
-```typescript
-export declare interface ILoanOrderActive {
-  loanOrderHash: string;
-  trader: string;
-  loanEndUnixTimestampSec: number;
-}
-```
-
-#### ILoanOrderFillable
-
-```typescript
-export declare interface ILoanOrderFillable {
-  makerAddress: string;
-  takerAddress: string;
-  tradeTokenToFillAddress: string;
-  withdrawOnOpen: boolean;
-  loanTokenAddress: string;
-  interestTokenAddress: string;
-  collateralTokenAddress: string;
-  feeRecipientAddress: string;
-  oracleAddress: string;
-  loanTokenAmount: number | string;
-  interestAmount: number | string;
-  initialMarginAmount: number | string;
-  maintenanceMarginAmount: number | string;
-  lenderRelayFee: number | string;
-  traderRelayFee: number | string;
-  maxDurationUnixTimestampSec: number | string;
-  expirationUnixTimestampSec: number | string;
-  loanOrderHash: string;
-  lender: string;
-  orderFilledAmount: number;
-  orderCancelledAmount: number;
-  orderTraderCount: number;
-  addedUnixTimestampSec: number;
-}
-```
-
-#### ILoanOrderFillRequest
-
-```typescript
-export declare interface ILoanOrderFillRequest {
-  makerAddress: string;
-  takerAddress: string;
-  tradeTokenToFillAddress: string;
-  withdrawOnOpen: boolean;
-  loanTokenAddress: string;
-  interestTokenAddress: string;
-  collateralTokenAddress: string;
-  feeRecipientAddress: string;
-  oracleAddress: string;
-  loanTokenAmount: number | string;
-  interestAmount: number | string;
-  initialMarginAmount: number | string;
-  maintenanceMarginAmount: number | string;
-  lenderRelayFee: number | string;
-  traderRelayFee: number | string;
-  maxDurationUnixTimestampSec: number | string;
-  expirationUnixTimestampSec: number | string;
-  bZxAddress: string;
-  makerRole: number;
-  salt: string;
-  signature: string;
-}
-```
-
-#### ILoanPositionState
-
-```typescript
-export declare interface ILoanPositionState {
-  lender: string;
-  trader: string;
-  loanOrderHash: string;
-  loanStartUnixTimestampSec: number;
-  loanEndUnixTimestampSec: number;
-  active: number;
-  loanTokenAddress: string;
-  loanTokenAmountFilled: number;
-  collateralTokenAddressFilled: string;
-  collateralTokenAmountFilled: number;
-  positionTokenAddressFilled: number;
-  positionTokenAmountFilled: number;
-  interestTokenAddress: string;
-  interestTotalAccrued: number;
-  interestLastPaidDate: number;
-  interestPaidSoFar: number;
-}
-```
-
-#### IZeroExOrder \(obsolete, use `IZeroExV2Order`\)
-
-```typescript
-export declare interface IZeroExOrder {
-  exchangeContractAddress: string;
-  expirationUnixTimestampSec: number;
-  feeRecipient: string;
-  maker: string;
-  makerFee: number;
-  makerTokenAddress: string;
-  makerTokenAmount: number;
-  salt: string;
-  taker: string;
-  takerFee: number;
-  takerTokenAddress: string;
-  takerTokenAmount: number;
-}
-```
-
-#### IZeroExV2Order
-
-```typescript
-export declare interface IZeroExV2Order {
-  senderAddress: string;
-  makerAddress: string;
-  takerAddress: string;
-  makerFee: string;
-  takerFee: string;
-  makerAssetAmount: string;
-  takerAssetAmount: string;
-  makerAssetData: any;
-  takerAssetData: any;
-  salt: string;
-  exchangeAddress: string;
-  feeRecipientAddress: string;
-  expirationTimeSeconds: string;
-}
-```
-
-#### ITokenMetadata
-
-```typescript
-export declare interface ITokenMetadata {
-  name: string;
-  symbol: string;
-  decimals: number;
-}
-```
-
-#### IZeroExV2OrderMetadata
-
-```typescript
-export declare interface IZeroExV2OrderMetadata {
-  makerToken: ITokenMetadata;
-  takerToken: ITokenMetadata;
-}
-```
-
-#### ISignatureParams
-
-```typescript
-export declare interface ISignatureParams {
-  v: number;
-  r: Buffer;
-  s: Buffer;
-}
-```
-
-#### IZeroExOrderSigned \(obsolete, use `IZeroExV2OrderSigned`\)
-
-```typescript
-export declare interface IZeroExOrderSigned extends IZeroExOrder {
-  ecSignature: ISignatureParams;
-}
-```
-
-#### IZeroExV2OrderSigned
-
-```typescript
-export declare interface IZeroExV2OrderSigned extends IZeroExV2Order {
-  signature: string;
-}
-```
-
-#### IZeroExTradeRequest \(obsolete, use `IZeroExV2TradeRequest`\)
-
-```typescript
-export declare interface IZeroExTradeRequest {
-  signedOrder: IZeroExOrderSigned;
-}
-```
-
-#### IZeroExV2TradeRequest
-
-```typescript
-export declare interface IZeroExV2TradeRequest {
-  signedOrder: IZeroExV2OrderSigned;
-  metadata: IZeroExV2OrderMetadata;
-}
-```
-
-#### IConversionData
-
-```typescript
-export declare interface IConversionData {
-  rate: string;
-  amount: string;
-}
-```
-
-#### IMarginLevel
-
-```typescript
-export declare interface IMarginLevel {
-  initialMarginAmount: string;
-  maintenanceMarginAmount: string;
-  currentMarginAmount: string;
-}
-```
-
-#### IInterestStatus
-
-```typescript
-export declare interface IInterestStatus {
-  lender: string;
-  interestTokenAddress: string;
-  interestTotalAccrued: string;
-  interestPaidSoFar: string;
-}
-```
-
-#### IProfitStatus
-
-```typescript
-export declare interface IProfitStatus {
-  isPositive: boolean;
-  offsetAmount: string;
-  positionTokenAddress: string;
-}
-```
-
