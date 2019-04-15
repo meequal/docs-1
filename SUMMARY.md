@@ -25,5 +25,5 @@
 ## Base Protocol
 
 * [Docs](https://bzx.network/docs/contracts/)
-* [GitHub](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts/contracts)
+* [GitHub](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts)
 
