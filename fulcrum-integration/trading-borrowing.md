@@ -1,7 +1,5 @@
 # Trading & Borrowing
 
-## State-Changing Functions
-
 ### Overview
 
 Trading \(taking a position\) involves first borrowing from an iToken. There are two ways to borrow using Fulcrum and open a position:
@@ -10,6 +8,8 @@ Trading \(taking a position\) involves first borrowing from an iToken. There are
 2. A trader can borrow directly from an iToken and manage their loan or margin trade themselves using the bZx protocol. The protocol supports margin loans that are under-collateralized or over-collatateralized. Over-collateralized loans, with 125% collateral or more, allow the user to withdraw the loan principal to their private wallet. The recommended way to borrow is to call the "borrowToken" function of the iToken contract.
 
 The on-chain functions for interacting with pTokens will be described following.
+
+## State-Changing Functions
 
 ### mintWithToken\(address,address,uint256\)
 
