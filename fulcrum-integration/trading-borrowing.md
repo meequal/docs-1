@@ -5,7 +5,6 @@
 Trading \(taking a position\) involves first borrowing from an iToken. There are two ways to borrow using Fulcrum and open a position:
 
 1. pToken contracts are tokenized versions of leveraged long or short positions on an asset. pTokens are minted by sending ETH or another asset into the pToken contract, which in turn borrows from an iToken lending pool, does a Kyber swap, and sends the user back an equivalent amount of pToken \(ERC20\) at the current pToken price. For short positions, such as 2x short ETH, the pToken borrows from the iETH token, then swaps that ETH for a stable asset \(DAI\) on KyberSwap. For long positions, such as 2x long ETH, the pToken borrows from from a stable asset, iDAI, and swaps that for ETH on KyberSwap. The tokens are perpetual, but positions are not. If a position loses too much value, or reaches the end of the loan term \(28 days\), it will be liquidated and a new position will be opened behind the scenes. Traders should be aware of the liquidation price of the pToken, and burn their pTokens prior to being liquidated, to avoid locking in any losses.
-
 2. A trader can borrow directly from an iToken and manage their loan or margin trade themselves using the bZx protocol. The protocol supports margin loans that are under-collateralized or over-collatateralized. Over-collateralized loans, with 125% collateral or more, allow the user to withdraw the loan principal to their private wallet. The recommended way to borrow is to call the "borrowToken" function of the iToken contract.
 
 ## State-Changing Functions
@@ -140,3 +139,4 @@ function assetBalanceOf(
 ```
 
 Returns the user’s balance of the underlying asset. This is the same as multiplying the user’s token balance by the token price.
+
