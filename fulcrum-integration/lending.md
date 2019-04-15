@@ -2,7 +2,7 @@
 
 ## Overview
 
-Lending on Fulcrum is powered by iTokens, which are global lending pools. Each asset has a single iToken equivalent \(ETH as iETH, DAI has iDAI, etc.\), and has an independent interest rate paid to lenders who have deposited funds to the contract. The interest earned is proportional to the amount of iToken held by each lender. iTokens are minted by transferring the underlying asset to the contract, calling mint, and receiving back an equivalent amount of the iToken \(ERC20\) at the current iToken price. iTokens have an on-chain API to query current "redemption value" \(tokenPrice\(\)\), as well the interest rates paid by borrowers and paid to lenders. The on-chain functions for interacting with iTokens will be described following.
+Lending on Fulcrum is powered by iTokens, which are global lending pools. Each asset has a single iToken equivalent \(ETH as iETH, DAI has iDAI, etc.\), and has an independent interest rate paid to lenders who have deposited funds to the contract. The interest earned is proportional to the amount of iToken held by each lender. iTokens are minted by transferring the underlying asset to the contract, calling mint, and receiving back an equivalent amount of the iToken \(ERC20\) at the current iToken price. iTokens have an on-chain API to query current "redemption value" \(tokenPrice\(\)\), as well the interest rates paid by borrowers and paid to lenders.
 
 ## State-Changing Functions
 
