@@ -1329,3 +1329,4 @@ Transfers specified amount of tokens to `to` address.
 **Returns**
 
 `Promise<TransactionReceipt>` or `TransactionObject<TransactionReceipt>`
+

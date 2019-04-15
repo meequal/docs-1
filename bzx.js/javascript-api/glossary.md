@@ -29,3 +29,4 @@
 **Price feed provider** on-chain source of exchange rates.
 
 **WETH** wrapped ETH. This is ERC20 token, which represents ETH. It's needed for trading ETH in the same way as any other ERC20 token. More at [https://weth.io/](https://weth.io/).
+

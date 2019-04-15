@@ -18,12 +18,12 @@
   * [Roles](bzx.js/javascript-api/roles.md)
   * [Instances](bzx.js/javascript-api/instances.md)
   * [Methods](bzx.js/javascript-api/methods.md)
-  * [Structures](bzx.js/javascript-api/structures.md)        
+  * [Structures](bzx.js/javascript-api/structures.md)
 * [Building from sources](bzx.js/building.md)
 * [Starter Project](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/starter_project)
 
 ## Base Protocol
 
 * [Docs](https://bzx.network/docs/contracts/)
-* [GitHub](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts)
+* [GitHub](https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts/contracts)
 

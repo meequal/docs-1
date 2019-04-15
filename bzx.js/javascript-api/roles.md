@@ -11,3 +11,4 @@
 **Trader** is the person who trades funds on exchange.
 
 **Bounty hunter** is the person or application who monitors current orders and initiates margin calls.
+

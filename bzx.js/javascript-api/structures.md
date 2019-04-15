@@ -1,6 +1,6 @@
 # Structures
 
-### ITokenDescription
+## ITokenDescription
 
 ```typescript
 export declare interface ITokenDescription {
@@ -12,7 +12,7 @@ export declare interface ITokenDescription {
 }
 ```
 
-### IOracleDescription
+## IOracleDescription
 
 ```typescript
 export declare interface IOracleDescription {
@@ -21,7 +21,7 @@ export declare interface IOracleDescription {
 }
 ```
 
-### ILoanOrderActive
+## ILoanOrderActive
 
 ```typescript
 export declare interface ILoanOrderActive {
@@ -31,7 +31,7 @@ export declare interface ILoanOrderActive {
 }
 ```
 
-### ILoanOrderFillable
+## ILoanOrderFillable
 
 ```typescript
 export declare interface ILoanOrderFillable {
@@ -61,7 +61,7 @@ export declare interface ILoanOrderFillable {
 }
 ```
 
-### ILoanOrderFillRequest
+## ILoanOrderFillRequest
 
 ```typescript
 export declare interface ILoanOrderFillRequest {
@@ -89,7 +89,7 @@ export declare interface ILoanOrderFillRequest {
 }
 ```
 
-### ILoanPositionState
+## ILoanPositionState
 
 ```typescript
 export declare interface ILoanPositionState {
@@ -112,7 +112,7 @@ export declare interface ILoanPositionState {
 }
 ```
 
-### IZeroExOrder \(obsolete, use `IZeroExV2Order`\)
+## IZeroExOrder \(obsolete, use `IZeroExV2Order`\)
 
 ```typescript
 export declare interface IZeroExOrder {
@@ -131,7 +131,7 @@ export declare interface IZeroExOrder {
 }
 ```
 
-### IZeroExV2Order
+## IZeroExV2Order
 
 ```typescript
 export declare interface IZeroExV2Order {
@@ -151,7 +151,7 @@ export declare interface IZeroExV2Order {
 }
 ```
 
-### ITokenMetadata
+## ITokenMetadata
 
 ```typescript
 export declare interface ITokenMetadata {
@@ -161,7 +161,7 @@ export declare interface ITokenMetadata {
 }
 ```
 
-### IZeroExV2OrderMetadata
+## IZeroExV2OrderMetadata
 
 ```typescript
 export declare interface IZeroExV2OrderMetadata {
@@ -170,7 +170,7 @@ export declare interface IZeroExV2OrderMetadata {
 }
 ```
 
-### ISignatureParams
+## ISignatureParams
 
 ```typescript
 export declare interface ISignatureParams {
@@ -180,7 +180,7 @@ export declare interface ISignatureParams {
 }
 ```
 
-### IZeroExOrderSigned \(obsolete, use `IZeroExV2OrderSigned`\)
+## IZeroExOrderSigned \(obsolete, use `IZeroExV2OrderSigned`\)
 
 ```typescript
 export declare interface IZeroExOrderSigned extends IZeroExOrder {
@@ -188,7 +188,7 @@ export declare interface IZeroExOrderSigned extends IZeroExOrder {
 }
 ```
 
-### IZeroExV2OrderSigned
+## IZeroExV2OrderSigned
 
 ```typescript
 export declare interface IZeroExV2OrderSigned extends IZeroExV2Order {
@@ -196,7 +196,7 @@ export declare interface IZeroExV2OrderSigned extends IZeroExV2Order {
 }
 ```
 
-### IZeroExTradeRequest \(obsolete, use `IZeroExV2TradeRequest`\)
+## IZeroExTradeRequest \(obsolete, use `IZeroExV2TradeRequest`\)
 
 ```typescript
 export declare interface IZeroExTradeRequest {
@@ -204,7 +204,7 @@ export declare interface IZeroExTradeRequest {
 }
 ```
 
-### IZeroExV2TradeRequest
+## IZeroExV2TradeRequest
 
 ```typescript
 export declare interface IZeroExV2TradeRequest {
@@ -213,7 +213,7 @@ export declare interface IZeroExV2TradeRequest {
 }
 ```
 
-### IConversionData
+## IConversionData
 
 ```typescript
 export declare interface IConversionData {
@@ -222,7 +222,7 @@ export declare interface IConversionData {
 }
 ```
 
-### IMarginLevel
+## IMarginLevel
 
 ```typescript
 export declare interface IMarginLevel {
@@ -232,7 +232,7 @@ export declare interface IMarginLevel {
 }
 ```
 
-### IInterestStatus
+## IInterestStatus
 
 ```typescript
 export declare interface IInterestStatus {
@@ -243,7 +243,7 @@ export declare interface IInterestStatus {
 }
 ```
 
-### IProfitStatus
+## IProfitStatus
 
 ```typescript
 export declare interface IProfitStatus {
@@ -252,3 +252,4 @@ export declare interface IProfitStatus {
   positionTokenAddress: string;
 }
 ```
+

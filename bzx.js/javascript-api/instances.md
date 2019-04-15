@@ -1,6 +1,6 @@
 # Instances
 
-#### Constructor
+## Constructor
 
 Creates an instance of BZxJS.
 
