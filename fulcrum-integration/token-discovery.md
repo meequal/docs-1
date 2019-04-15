@@ -2,7 +2,7 @@
 
 ## ENS Usage
 
-Fulcrum token and related contracts make heavy use of ENS Domains on networks that support ENS \(Mainnet and Ropsten\).
+Fulcrum token and related contracts make heavy use of [ENS Domains](https://ens.domains) on networks that support ENS \(Mainnet and Ropsten\).
 
 The ENS convention for fulcrum tokens is \[symbol\].tokenloan.eth.
 
