@@ -31,7 +31,7 @@ function getTokens(
     returns (TokenMetadata[] memory tokenData);
 ```
 
-There are other view functions that may also be of use. The Etherscan-verified contracts for each network can be found at the follow addresses.
+There are other read-only functions that may also be of use. The Etherscan-verified contracts for each network can be found at the follow addresses.
 
 Mainnet: registry.tokenloan.eth \(coming soon\)
 
