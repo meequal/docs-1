@@ -70,7 +70,7 @@ function tokenPrice()
    returns (uint256 price);
 ```
 
-Returns the current price of the pToken. Example 1000000000000000000000 = 1,000 pToken per ETH.
+Returns the current price of the pToken. Example 1000000000000000000000 = 1,000 ETH per pToken.
 
 ### liquidationPrice\(\)
 
@@ -93,7 +93,7 @@ function checkpointPrice(
     returns (uint256 price);
 ```
 
-Returns the token price recorded during the last checkpoint for the user. Checkpoints occur whenever there is a token balance changing action taken by the user \(minting, burning, or transferring\). A user profit since last checkpoint would be calculated like so: \(tokenPrice\(\)-checkpointPrice\(user\)\) \_balanceOf\(user\) / 10\*\_36
+Returns the token price recorded during the last checkpoint for the user. Checkpoints occur whenever there is a token balance changing action taken by the user \(minting, burning, or transferring\). A user profit since last checkpoint would be calculated like so: \(tokenPrice\(\)-checkpointPrice\(user\)\) \* balanceOf\(user\) / 10^36
 
 ### currentLeverage\(\)
 

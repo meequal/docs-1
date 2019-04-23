@@ -119,7 +119,7 @@ function tokenPrice()
    returns (uint256 price);
 ```
 
-Returns the current price of the iToken. Example 1000000000000000000 = 1 iToken per ETH.
+Returns the current price of the iToken. Example 1000000000000000000 = 1 ETH per iToken.
 
 ### checkpointPrice\(address\)
 
@@ -131,7 +131,7 @@ function checkpointPrice(
     returns (uint256 price);
 ```
 
-Returns the token price recorded during the last checkpoint for the user. Checkpoints occur whenever there is a token balance changing action taken by the user \(minting, burning, transferring, or claiming\). A user profit since last checkpoint would be calculated like so: \(tokenPrice\(\)-checkpointPrice\(user\)\) \_balanceOf\(user\) / 10\*\_36
+Returns the token price recorded during the last checkpoint for the user. Checkpoints occur whenever there is a token balance changing action taken by the user \(minting, burning, transferring, or claiming\). A user profit since last checkpoint would be calculated like so: \(tokenPrice\(\)-checkpointPrice\(user\)\) \* balanceOf\(user\) / 10^36
 
 ### totalReservedSupply\(\)
 
