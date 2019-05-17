@@ -35,7 +35,7 @@ There are other read-only functions that may also be of use. The Etherscan-verif
 
 Mainnet: registry.tokenloan.eth \(coming soon\)
 
-Ropsten: registry.tokenloan.eth \(coming soon\)
+Ropsten: 0xd3a04ec94b32dc4edbfc8d3be4cd44850e6df246
 
 Rinkeby: \(coming soon\)
 
