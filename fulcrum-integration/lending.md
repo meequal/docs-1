@@ -79,19 +79,6 @@ function borrowToken(
 
 This function can be called by a borrower to open a bZx base protocol loan for margin trading or borrowing of a specified amount \(borrowAmount\) and leverage \(leverageAmount\). The loan will conform to the parameters set for the iToken, such as loan length \(typically 28 days\). Interest required from the borrower is determined based on the interest rate returned by the nextLoanInterestRate\(uint256\) function and is denominated the same as the asset being borrowed \(loanTokenAddress\(\)\). The borrower is permitted to collateralize their loan with any supported KyberSwap token \(collateralTokenAddress\). If the trader desires to immediately open a position with the borrowed asset \(short the asset\), they can specified another token for tradeTokenToFillAddress, otherwise the borrowers should specify a 0 address. A TRUE value for withdrawOnOpen indicates the loan will be over-collateralized, and the borrowed asset will be immediately deposited to the borrowers wallet on loan open. If withdrawOnOpen, any value for tradeTokenToFillAddress is ignored. Users of this function should have the correct approvals set on the BZxVault base protocol contract. Token approvals can be verified on the bZx Portal Balances page \([https://portal.bzx.network](https://portal.bzx.network)\).
 
-Note: Prior to calling this function, the iToken contract must be approved as a "delegate" in the bZx Protocol for opening loans on your behalf. The iToken contract can only open loans when you specifically request it to by a later call to "borrowToken" or "borrowTokenFromEscrow". The following function should be called on the base protocol \(Mainnet contract: bzxnetwork.eth\).
-
-```text
-function toggleDelegateApproved(
-    address delegate,
-    bool isApproved)
-    external;
-```
-
-To enable delegation, pass the iToken contract address as "delegate" and "TRUE" for isApproved. Delegation remains in effect unless the user calls this function again to disable delegation with a "FALSE" value.
-
-There is no need to call "toggleDelegateApproved" when using pTokens. This function is only needed when borrowing directly against an iToken for a base protocol loan.
-
 ### borrowTokenFromEscrow\(uint256,uint256,address,bool\)
 
 ```text
@@ -105,8 +92,6 @@ function borrowTokenFromEscrow(
 ```
 
 This function behaves similarly to the borrowToken function, but instead accepts an escrowAmount, which will be correctly split to cover both the required collateral + interest for the loan, based on the specified leverageAmount and the current interest rate. The borrowAmount of the loan will be calculated as the maximum amount that this escrowAmount can support. The token for collateral and interest tokens are denominated the same as the asset being borrowed \(loanTokenAddress\(\)\).
-
-Note: Please reference the above note on "toggleDelegateApproved". The same applies here.
 
 ## Read-Only Functions
 
