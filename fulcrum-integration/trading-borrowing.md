@@ -9,55 +9,59 @@ Trading \(taking a position\) involves first borrowing from an iToken. There are
 
 ## State-Changing Functions
 
-### mintWithToken\(address,address,uint256\)
+### mintWithToken\(address,address,uint256,uint256\)
 
 ```text
 function mintWithToken(
     address receiver,
     address depositTokenAddress,
-    uint256 depositAmount)
+    uint256 depositAmount,
+    uint256 maxPriceAllowed)
     external
     returns (uint256);
 ```
 
-Called to deposit assets to the pToken, which in turn mints pTokens to the lender’s wallet at the current tokenPrice\(\) rate. The receiver parameter specifies the address that will receive the minted pTokens. Any supported KyberToken can be specified \(depositTokenAddress\) to mint pTokens, however, specifying a token other the asset returned by the loanTokenAddress\(\) function will trigger a KyberSwap into the correct asset, being subject to any trade slippage that may occur. A prior ERC20 “approve” transaction should have been sent to the depositTokenAddress contract for an amount greater than or equal to depositAmount.
+Called to deposit assets to the pToken, which in turn mints pTokens to the lender’s wallet at the current tokenPrice\(\) rate. The receiver parameter specifies the address that will receive the minted pTokens. Any supported KyberToken can be specified \(depositTokenAddress\) to mint pTokens, however, specifying a token other the asset returned by the loanTokenAddress\(\) function will trigger a KyberSwap into the correct asset, being subject to any trade slippage that may occur. A prior ERC20 “approve” transaction should have been sent to the depositTokenAddress contract for an amount greater than or equal to depositAmount. A limit of slippage can be set by specifying "maxPriceAllowed". This should be set to a value above the current price returned by "tokenPrice\(\)". A value of 0 is ignored.
 
-### mintWithEther\(address\)
+### mintWithEther\(address,uint256\)
 
 ```text
 function mintWithEther(
-    address receiver)
+    address receiver,
+    uint256 maxPriceAllowed)
     external
     payable
     returns (uint256);
 ```
 
-This accepts ETH sent directly to the pToken contract for minting pTokens. Mint actions for pTokens with "loanTokenAddress\(\)" assets other than WETH, will trigger a KyberSwap into the correct asset, as with the above.
+This accepts ETH sent directly to the pToken contract for minting pTokens. Mint actions for pTokens with "loanTokenAddress\(\)" assets other than WETH, will trigger a KyberSwap into the correct asset, as with the above. A limit of slippage can be set by specifying "maxPriceAllowed". This should be set to a value above the current price returned by "tokenPrice\(\)". A value of 0 is ignored.
 
-### burnToToken\(address,address,uint256\)
+### burnToToken\(address,address,uint256,uint256\)
 
 ```text
 function burnToToken(
     address receiver,
     address burnTokenAddress,
-    uint256 burnAmount)
+    uint256 burnAmount,
+    uint256 minPriceAllowed)
     external
     returns (uint256);
 ```
 
-Called to redeem owned pTokens for an equivalent amount of the underlying asset based on remaining collateral, unpaid interest, and including any profits or losses on the position, at the current tokenPrice\(\) rate. The receiver parameter specifies the address that will receive the asset proceeds.
+Called to redeem owned pTokens for an equivalent amount of the underlying asset based on remaining collateral, unpaid interest, and including any profits or losses on the position, at the current tokenPrice\(\) rate. The receiver parameter specifies the address that will receive the asset proceeds. A limit of slippage can be set by specifying "minPriceAllowed". This should be set to a value below the current price returned by "tokenPrice\(\)". A value of 0 is ignored.
 
-### burnToEther\(address,uint256\)
+### burnToEther\(address,uint256,uint256\)
 
 ```text
 function burnToEther(
     address payable receiver,
-    uint256 burnAmount)
+    uint256 burnAmount,
+    uint256 minPriceAllowed)
     external
     returns (uint256);
 ```
 
-Called to redeem owned pTokens similar to the above, but for an equivalent amount of ETH.
+Called to redeem owned pTokens similar to the above, but for an equivalent amount of ETH. A limit of slippage can be set by specifying "minPriceAllowed". This should be set to a value below the current price returned by "tokenPrice\(\)". A value of 0 is ignored.
 
 ## Read-Only Functions
 
