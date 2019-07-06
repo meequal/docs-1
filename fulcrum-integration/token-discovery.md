@@ -35,7 +35,7 @@ There are other read-only functions that may also be of use. The Etherscan-verif
 
 Mainnet: [tokenloan.eth](https://etherscan.io/address/tokenloan.eth#readContract)
 
-Ropsten: 0xaa5c713387972841995553c9690459596336800b
+Ropsten: 0xd03eea21041a19672e451bcbb413ce8be72d0381
 
 Kovan: 0x730df5c1e0a4b6ba7a982a585c1ec55187fbb3ca
 
