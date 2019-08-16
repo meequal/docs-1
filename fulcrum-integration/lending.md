@@ -64,34 +64,7 @@ function claimLoanToken()
 
 In the event that there isn't available \(un-borrowed\) liquidity after a burn\(\) function is called, the lender is entered into a "reserve" queue to be automatically paid back as liquidity becomes freed from borrowers, when borrowers close their positions or a position gets liquidated. At anytime, a lender can call this function to claim any available funds owed to them, and to put them in the front of the reserve queue.
 
-### borrowToken\(uint256,uint256,address,address,bool\)
-
-```text
-function borrowToken(
-    uint256 borrowAmount,
-    uint256 leverageAmount,
-    address collateralTokenAddress,
-    address tradeTokenToFillAddress,
-    bool withdrawOnOpen)
-    external
-    returns (uint256);
-```
-
-This function can be called by a borrower to open a bZx base protocol loan for margin trading or borrowing of a specified amount \(borrowAmount\) and leverage \(leverageAmount\). The loan will conform to the parameters set for the iToken, such as loan length \(typically 28 days\). Interest required from the borrower is determined based on the interest rate returned by the nextLoanInterestRate\(uint256\) function and is denominated the same as the asset being borrowed \(loanTokenAddress\(\)\). The borrower is permitted to collateralize \(collateralTokenAddress\) their loan with any token supported for lending and trading on Fulcrum. If the trader desires to immediately open a position with the borrowed asset \(short the asset\), they can specify another supported token for tradeTokenToFillAddress, otherwise the borrowers should specify a 0 address. A TRUE value for withdrawOnOpen indicates the loan will be over-collateralized, and the borrowed asset will be immediately deposited to the borrowers wallet on loan open. If withdrawOnOpen, any value for tradeTokenToFillAddress is ignored. Users of this function should have the correct approvals set on the BZxVault base protocol contract \(Mainnet address: 0x8b3d70d628ebd30d4a2ea82db95ba2e906c71633\). Token approvals can be verified on the bZx Portal Balances page \([https://portal.bzx.network](https://portal.bzx.network)\).
-
-### borrowTokenFromEscrow\(uint256,uint256,address,bool\)
-
-```text
-function borrowTokenFromEscrow(
-    uint256 escrowAmount,
-    uint256 leverageAmount,
-    address tradeTokenToFillAddress,
-    bool withdrawOnOpen)
-    external
-    returns (uint256);
-```
-
-This function behaves similarly to the borrowToken function, but instead accepts an escrowAmount, which will be correctly split to cover both the required collateral + interest for the loan, based on the specified leverageAmount and the current interest rate. The borrowAmount of the loan will be calculated as the maximum amount that this escrowAmount can support. The token for collateral and interest tokens are denominated the same as the asset being borrowed \(loanTokenAddress\(\)\).
+### Coming soon: New and improved functions for borrowing
 
 ## Read-Only Functions
 
@@ -162,10 +135,10 @@ function supplyInterestRate()
 
 Returns the aggregate rate that all lenders are receiving from iToken borrowers. The supplyInterestRate\(\) will always be less than the borrowInterestRate\(\). Please refer to the Interest Determination section of the [Fulcrum announcement](https://medium.com/bzxnetwork/introducing-fulcrum-tokenized-margin-made-dead-simple-e65ccc82393f) article for additional information.
 
-### nextLoanInterestRate\(uint256\)
+### nextBorrowInterestRate\(uint265\)
 
 ```text
-function nextLoanInterestRate(
+function nextBorrowInterestRate(
     uint256 borrowAmount)
     public
     view
@@ -174,16 +147,19 @@ function nextLoanInterestRate(
 
 For non-pToken borrowers, returns interest rate a borrower would pay for opening a loan against the iToken. The rate increases proportional to the borrowAmount.
 
-### interestReceived\(\)
+This function can also be queried with nextLoanInterestRate\(uint256\).
+
+### nextSupplyInterestRate\(uint265\)
 
 ```text
-function interestReceived()
+function nextSupplyInterestRate(
+    uint256 supplyAmount)
     public
     view
-    returns (uint256 interestTotalAccrued);
+    returns (uint256);
 ```
 
-Returns the total amount of interest earned for all active loans.
+For lenders, returns the interest rate that lenders will be paying after a lender makes a new deposit. The rate decreases proportional to the supplyAmount.
 
 ### totalAssetSupply\(\)
 
