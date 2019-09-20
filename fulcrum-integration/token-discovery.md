@@ -1,12 +1,4 @@
-# Token Discovery
-
-## ENS Usage
-
-Fulcrum token and related contracts make heavy use of [ENS Domains](https://ens.domains) on networks that support ENS \(Mainnet and Ropsten\).
-
-The ENS convention for fulcrum tokens is \[symbol\].tokenloan.eth.
-
-For instance: iETH.tokenloan.eth, iDAI.tokenloan.eth, psETH2x.tokenloan.eth, plwBTC4x.tokenloan.eth.
+# Token Registry / Contract ABIs
 
 ## Token Registry
 
@@ -39,7 +31,7 @@ Ropsten: 0xd03eea21041a19672e451bcbb413ce8be72d0381
 
 Kovan: 0xF1C87dD61BF8a4e21978487e2705D52AA687F97E
 
-## Contract Artifacts/ABIs
+## Contract ABIs
 
 The latest ABIs \(Application Binary Interfaces\) for Fulcrum tokens and the TokenizedRegistry can be found here for each supported network: [https://fulcrum.trade/artifacts](https://fulcrum.trade/artifacts)
 
