@@ -147,8 +147,6 @@ function nextBorrowInterestRate(
 
 For non-pToken borrowers, returns interest rate a borrower would pay for opening a loan against the iToken. The rate increases proportional to the borrowAmount.
 
-This function can also be queried with nextLoanInterestRate\(uint256\).
-
 ### nextSupplyInterestRate\(uint265\)
 
 ```text
