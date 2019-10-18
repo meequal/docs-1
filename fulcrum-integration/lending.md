@@ -122,7 +122,43 @@ function borrowInterestRate()
     returns (uint256);
 ```
 
-Returns the aggregate rate that all borrowers are paying to iToken holders.
+Returns the minimum rate the next borrower will receive for variable-rate loans.
+
+### nextBorrowInterestRate\(uint256\)
+
+```text
+function nextBorrowInterestRate(
+    uint256 borrowAmount)
+    public
+    view
+    returns (uint256);
+```
+
+Returns the rate the next borrower will receive for variable-rate loans, based on amount borrowed.
+
+### nextBorrowInterestRateWithOption\(uint256,bool\)
+
+```text
+function nextBorrowInterestRateWithOption(
+    uint256 borrowAmount,
+    bool useFixedInterestModel)
+    public
+    view
+    returns (uint256);
+```
+
+Returns the rate the next borrower will receive for variable or fixed-rate loans, based on amount borrowed, 
+
+### avgBorrowInterestRate\(\)
+
+```text
+function avgBorrowInterestRate()
+    public
+    view
+    returns (uint256);
+```
+
+Returns the aggregate rate that all borrowers are paying to lenders.
 
 ### supplyInterestRate\(\)
 
@@ -133,19 +169,7 @@ function supplyInterestRate()
     returns (uint256);
 ```
 
-Returns the aggregate rate that all lenders are receiving from iToken borrowers. The supplyInterestRate\(\) will always be less than the borrowInterestRate\(\). Please refer to the Interest Determination section of the [Fulcrum announcement](https://medium.com/bzxnetwork/introducing-fulcrum-tokenized-margin-made-dead-simple-e65ccc82393f) article for additional information.
-
-### nextBorrowInterestRate\(uint265\)
-
-```text
-function nextBorrowInterestRate(
-    uint256 borrowAmount)
-    public
-    view
-    returns (uint256);
-```
-
-For non-pToken borrowers, returns interest rate a borrower would pay for opening a loan against the iToken. The rate increases proportional to the borrowAmount.
+Returns the aggregate rate that all lenders are receiving from borrowers. The supplyInterestRate\(\) will always be less than the avgBorrowInterestRate\(\). Please refer to the Interest Determination section of the [Fulcrum announcement](https://medium.com/bzxnetwork/introducing-fulcrum-tokenized-margin-made-dead-simple-e65ccc82393f) article for additional information.
 
 ### nextSupplyInterestRate\(uint265\)
 
@@ -157,7 +181,7 @@ function nextSupplyInterestRate(
     returns (uint256);
 ```
 
-For lenders, returns the interest rate that lenders will be paying after a lender makes a new deposit. The rate decreases proportional to the supplyAmount.
+Returns the interest rate that lenders will be paying after a lender makes a new deposit.
 
 ### totalAssetSupply\(\)
 
