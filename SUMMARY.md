@@ -5,7 +5,7 @@
 ## Fulcrum Integration
 
 * [Fulcrum Introduction](fulcrum-integration/intro.md)
-* [Token Registry / Contract ABIs](fulcrum-integration/token-discovery.md)
+* [Contract ABIs](fulcrum-integration/contract-abis.md)
 * [Lending](fulcrum-integration/lending.md)
 * [Trading & Borrowing](fulcrum-integration/trading-borrowing.md)
 
