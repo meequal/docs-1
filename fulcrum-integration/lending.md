@@ -171,7 +171,7 @@ function supplyInterestRate()
 
 Returns the aggregate rate that all lenders are receiving from borrowers. The supplyInterestRate\(\) will always be less than the avgBorrowInterestRate\(\). Please refer to the Interest Determination section of the [Fulcrum announcement](https://medium.com/bzxnetwork/introducing-fulcrum-tokenized-margin-made-dead-simple-e65ccc82393f) article for additional information.
 
-### nextSupplyInterestRate\(uint265\)
+### nextSupplyInterestRate\(uint256\)
 
 ```text
 function nextSupplyInterestRate(
